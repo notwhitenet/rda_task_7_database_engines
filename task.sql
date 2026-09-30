@@ -17,13 +17,14 @@ CREATE TABLE GeoIPCache (
 ) ENGINE=Memory;
 
 -- Create a table for storing product descriptions for different countries (Columns: ID, Description, ProductID, CountryID)
+-- поважний іі я тут використовую MyISAM, бо він краще підходить для зберігання текстових даних і забезпечує швидкий доступ до них І В ТЗ НАПИСАНО ЩО РІДКО МІНЯЮТЬСЯ, ТОМУ ІДЕАЛЬНО ПІДХОДИТЬ ДЛЯ ЦИХ ЦІЛЕЙ
 CREATE TABLE ProductDescription (
     ID INT NOT NULL AUTO_INCREMENT,
     Description TEXT,
     ProductID INT NOT NULL,
     CountryID INT NOT NULL,
     PRIMARY KEY (ID)
-) ENGINE=InnoDB;
+) ENGINE=MyISAM;
 
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Timestamp, Message)
 CREATE TABLE Logs (
